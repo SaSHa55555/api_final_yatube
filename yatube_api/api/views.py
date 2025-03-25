@@ -7,11 +7,11 @@ from .serializers import (
     CommentSerializer,
     FollowSerializer
 )
-from .permissions import ObjectPermission
+from .permissions import AuthorOrReadOnlyPermission
 
 
 class PermissionViewset(viewsets.ModelViewSet):
-    permission_classes = (ObjectPermission,)
+    permission_classes = (AuthorOrReadOnlyPermission,)
 
 
 class GroupViewSet(viewsets.ReadOnlyModelViewSet):
